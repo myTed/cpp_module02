@@ -8,7 +8,7 @@ float	dotProduct(const Point &a, const Point &b)
 		   );
 }
 
-Point	crossProduct(const Point &a, const Point &b)
+Point	crossProduct(const Point& a, const Point& b)
 {
 	float 	new_x = (a.getY() * b.getZ()) - (a.getZ() * b.getY());
 	float	new_y = (a.getZ() * b.getX()) - (a.getX() * b.getZ());
@@ -17,18 +17,31 @@ Point	crossProduct(const Point &a, const Point &b)
 }
 
 
-bool	isSameSide(const Point &a, const Point &b, const Point &c,
-					const Point &p)
+bool	isSameDirectionFromLine(
+			const Point& start,
+			const Point& end, 
+			const Point& oppossite,
+			const Point& point
+)
 {
-	Point tmp1 = crossProduct(b - a, p - a);
-	Point tmp2 = crossProduct(b - a, c - a);
-	return (dotProduct(tmp1, tmp2) >= 0);
+	Point tmp1 = crossProduct(end - start, point - start);
+	Point tmp2 = crossProduct(end - start, oppossite - start);
+	return (dotProduct(tmp1, tmp2) > 0);
 }
 
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point)
 {
-	return (isSameSide(a, b, c, p) &
-			isSameSize(b, c, a, p) &
-			isSameSide(c, a, b, p));
+	return (isSameDirectionFromLine(a, b, c, point) &
+			isSameDirectionFromLine(b, c, a, point) &
+			isSameDirectionFromLine(c, a, b, point));
+}
+
+
+bool	isValidPoint(Point const a, Point const b, Point const c)
+{
+	Point tmp1 = crossProduct(b - a, c - a);
+	if (tmp1.getZ() == 0)
+		return (false);
+	return (true);
 }

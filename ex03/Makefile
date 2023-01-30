@@ -3,9 +3,9 @@ CXX=g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 CXXFLAGS += -I ./include
 
-SRCS=main.cpp Fixed.cpp
+SRCS=main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJECTS=$(patsubst %.cpp, %.o, $(SRCS))
-NAME=fixed
+NAME=bsp
 
 all:$(NAME)
 

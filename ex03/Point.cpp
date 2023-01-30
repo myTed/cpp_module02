@@ -9,18 +9,15 @@ Point::Point(const float x, const float y)
 Point::Point(const float x, const float y, const float z)
 		:_x(x), _y(y), _z(z) {}
 
-Point& Point::Point(const Point &rP)
-{
-	_x = rP._x;
-	_y = rP._y;
-	_z = rP._z;
-}
+Point::Point(const Point &rP)
+: _x(rP._x), _y(rP._y), _z(rP._z) {}
+
+Point::~Point()
+{}
 
 Point& Point::operator=(const Point &rP)
 {
-	_x = rP._x;
-	_y = rP._y;
-	_z = rP._z;
+	static_cast<void>(&rP);
 	return (*this);	
 }
 
@@ -39,7 +36,7 @@ float	Point::getZ() const
 	return (_z.toFloat());
 }
 
-Point	operator-(const Point &rP)
+Point Point::operator-(const Point &rP) const
 {
 	return Point(getX() - rP.getX(),
 				getY() - rP.getY(),

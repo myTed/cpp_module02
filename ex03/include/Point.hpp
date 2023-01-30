@@ -5,21 +5,21 @@
 class Point
 {
 private:
-	Fixed const _x;
-	Fixed const _y;
-	Fixed const _z;
+	const Fixed _x;
+	const Fixed _y;
+	const Fixed _z;
 public:
 	Point();
 	Point(const float x, const float y);
 	Point(const float x, const float y, const float z);
-	Point& Point(const Point &rP);
-	Point& operator=(const Point &rP);
-	
-	float	getX() const;
-	float	getY() const;
-	float	getZ() const;
-	Point operator-(const Point &rP);
+	Point(const Point &rP);
 	~Point();
+	Point& 		operator=(const Point &rP);
+	
+	float		getX() const;
+	float		getY() const;
+	float		getZ() const;
+	Point		operator-(const Point &rP) const;
 };
 #endif
 
