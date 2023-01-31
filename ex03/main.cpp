@@ -38,7 +38,7 @@ int	main(void)
 	showInOrOut(a, b, c, LinePoint);
 
 	//Outer Test
-	Point	outPoint(1.5, 2.0);
+	Point	outPoint(-1.5, 2.0);
 	showInOrOut(a, b, c, outPoint);
 	return (0);
 }

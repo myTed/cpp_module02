@@ -17,7 +17,7 @@ Point	crossProduct(const Point& a, const Point& b)
 }
 
 
-bool	isSameDirectionFromLine(
+bool	isSameSideFromLine(
 			const Point& start,
 			const Point& end, 
 			const Point& oppossite,
@@ -32,9 +32,9 @@ bool	isSameDirectionFromLine(
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point)
 {
-	return (isSameDirectionFromLine(a, b, c, point) &
-			isSameDirectionFromLine(b, c, a, point) &
-			isSameDirectionFromLine(c, a, b, point));
+	return (isSameSideFromLine(a, b, c, point) &
+			isSameSideFromLine(b, c, a, point) &
+			isSameSideFromLine(c, a, b, point));
 }
 
 
