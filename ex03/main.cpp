@@ -21,7 +21,6 @@ void	showInOrOut(Point& a, Point& b , Point& c, Point& point)
 
 int	main(void)
 {
-
 	Point	a(3.0, 3.0);
 	Point	b(1.0, 1.0);
 	Point	c(5.0, 1.0);

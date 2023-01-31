@@ -14,6 +14,8 @@ Fixed::Fixed(const Fixed &rFixed)
 
 Fixed& Fixed::operator=(const Fixed &rFixed)
 {
+	if (this == &rFixed)
+		return (*this);
 	_fixedPointValue = rFixed._fixedPointValue;
 	return (*this);
 }
